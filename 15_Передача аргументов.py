@@ -13,7 +13,7 @@ File_name = argv[0]
 name = argv[1]
 second_name = argv[2]
 
-print (File_name, name, second_name)
+print (f"#1 \nВывод: {File_name, name, second_name} \n")
 
 #Если что то не понял глянь начало этого видика ( https://www.youtube.com/watch?v=FBg5ThfzDjU ) но мне кажется и так все ахуенно обьяснил
 #И еще несколько моментов (гляди ниже)
