@@ -11,7 +11,7 @@ owners_NR = {
         "location": "Russia",
         "sex": "Men",
         "model_pc/laptop": "Laptop",
-        "ip": "130.255.06642"
+        "ip": "130.255.066.42"
     },
     "Don": {
         "location": "Kazakstan",

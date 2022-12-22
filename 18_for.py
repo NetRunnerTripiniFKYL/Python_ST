@@ -9,7 +9,7 @@
 список
 словарь
 Функция range
-любой Итерируемый объект
+любой Итерируемый объект 
 """
 
 #Пример преобразования строк в списке в верхний регистр:
@@ -88,3 +88,51 @@ print (" \n#6")
 
 for key in owners_NR:
     print (key + "=>", owners_NR[key])
+
+#---------------------------------------------------------------------------------------
+
+#Циклы for можно вкладывать друг в друга
+
+print (" \n#7")
+
+commands = ["switchport mode access" , "spanning-tree portfas" , "spanning-tree bpduguard enable"]
+fast_int = ["0|1" , "1|2" , "2|3"]
+
+for intf in fast_int:
+    print('interface FastEthernet {}'.format(intf))
+    for command in commands:
+        print(' {}'.format(command))
+
+#Рассмотрим пример совмещения for и if
+
+print (" \n#8")
+
+access_template = ['switchport mode access',
+'switchport access vlan',
+'spanning-tree portfast',
+'spanning-tree bpduguard enable']
+
+access = {'0/12': 10, '0/14': 11, '0/16': 17, '0/17': 150}
+
+for intf, vlan in access.items():
+    print('interface FastEthernet' + intf)
+    for command in access_template:
+        if command.endswith('access vlan'):
+            print(' {} {}'.format(command, vlan))
+        else:
+            print(' {}'.format(command))
+
+#Комментарии к коду:
+
+"""
+В первом цикле for перебираются ключи и значения во вложенном словаре access
+Текущий ключ, на данный момент цикла, хранится в переменной intf
+Текущее значение, на данный момент цикла, хранится в переменной vlan
+Выводится строка interface FastEthernet с добавлением к ней номера интерфейса
+Во втором цикле for перебираются команды из списка access_template
+Так как к команде switchport access vlan надо добавить номер VLAN:
+внутри второго цикла for проверяются команды
+если команда заканчивается на access vlan
+выводится команда, и к ней добавляется номер VLAN
+во всех остальных случаях просто выводится команда
+"""
