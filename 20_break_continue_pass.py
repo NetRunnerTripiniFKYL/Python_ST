@@ -17,7 +17,7 @@ for num in range(10):
     else:
         break
 
-#Пример с циклом for
+#Пример с циклом while
 
 print (" \n#2")
 
